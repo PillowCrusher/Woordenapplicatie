@@ -5,11 +5,13 @@
  */
 package logic;
 
+import java.util.Collection;
+
 /**
  *
  * @author Jeroe
  */
 public interface LogicImplementation
 {
-    public void Bewerk(String text);
+    public String Bewerk(String[] woorden);
 }

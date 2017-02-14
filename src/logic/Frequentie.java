@@ -5,6 +5,9 @@
  */
 package logic;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 /**
  *
  * @author Jeroe
@@ -13,7 +16,7 @@ public class Frequentie implements LogicImplementation
 {
 
     @Override
-    public void Bewerk(String text)
+    public String Bewerk(String[] woorden)
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

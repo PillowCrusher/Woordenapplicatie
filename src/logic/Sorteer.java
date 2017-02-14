@@ -5,6 +5,10 @@
  */
 package logic;
 
+import java.util.Collections;
+import java.util.Set;
+import java.util.TreeSet;
+
 /**
  *
  * @author Jeroe
@@ -12,10 +16,51 @@ package logic;
 public class Sorteer implements LogicImplementation
 {
 
-    @Override
-    public void Bewerk(String text)
+    private Set<String> set;
+    private Set<String> reverseSet;
+    private String[] woorden;
+
+    public Sorteer()
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        set = new TreeSet<>();
+        reverseSet = new TreeSet<>(Collections.reverseOrder());
     }
-    
+
+    @Override
+    public String Bewerk(String[] woorden)
+    {
+        StringBuilder builder = new StringBuilder();
+        this.woorden = woorden;
+        builder.append("In geordende volgorde:\n");
+        for (String woord : orderdWords())
+        {
+            builder.append(woord);
+        }
+        builder.append("\n\n In omgekeerde volgorde");
+        for (String woord : reverseOrderd())
+        {
+            builder.append(woord);
+        }
+        return builder.toString();
+    }
+
+    private Set<String> orderdWords()
+    {
+        set.clear();
+        for (String woord : woorden)
+        {
+            set.add(woord);
+        }
+        return set;
+    }
+
+    private Set<String> reverseOrderd()
+    {
+        reverseSet.clear();
+        for (String woord : woorden)
+        {
+            reverseSet.add(woord);
+        }
+        return reverseSet;
+    }
 }

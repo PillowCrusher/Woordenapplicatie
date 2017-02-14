@@ -5,6 +5,10 @@
  */
 package logic;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+
 /**
  *
  * @author Jeroe
@@ -12,10 +16,46 @@ package logic;
 public class Aantal implements LogicImplementation
 {
 
-    @Override
-    public void Bewerk(String text)
+    private HashSet uniqueWords;
+    private ArrayList list;
+    private String[] woorden;
+
+    public Aantal()
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        uniqueWords = new HashSet();
+        list = new ArrayList();
+    }
+
+    @Override
+    public String Bewerk(String[] woorden)
+    {
+        this.woorden = woorden;
+        StringBuilder sBuilder = new StringBuilder();
+        sBuilder.append("Totaal aantal woorden: \n");
+        sBuilder.append(convertToList().size());
+        sBuilder.append("Aantal verschillende woorden: ");
+        sBuilder.append(convetToUniqueWords().size());
+        return sBuilder.toString();
+    }
+
+    public HashSet convetToUniqueWords()
+    {
+        uniqueWords.clear();
+        for (String word : woorden)
+        {
+            uniqueWords.add(word);
+        }
+        return uniqueWords;
     }
     
+    public ArrayList convertToList()
+    {
+        list.clear();
+        for(String word : woorden)
+        {
+            list.add(word);
+        }
+        return list;
+    }
+
 }
