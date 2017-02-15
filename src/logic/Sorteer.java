@@ -16,8 +16,8 @@ import java.util.TreeSet;
 public class Sorteer implements LogicImplementation
 {
 
-    private Set<String> set;
-    private Set<String> reverseSet;
+    private final Set<String> set;
+    private final Set<String> reverseSet;
     private String[] woorden;
 
     public Sorteer()

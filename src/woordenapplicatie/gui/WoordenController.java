@@ -6,9 +6,6 @@ package woordenapplicatie.gui;
  * and open the template in the editor.
  */
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;

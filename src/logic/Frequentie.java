@@ -26,7 +26,7 @@ public class Frequentie implements LogicImplementation
      */
 
     private ArrayList<String> list;
-    private Set<String> uniqeSet;
+    private final Set<String> uniqeSet;
     private String[] woorden;
 
     public Frequentie()

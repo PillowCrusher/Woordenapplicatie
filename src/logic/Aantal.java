@@ -6,7 +6,6 @@
 package logic;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
 
 /**
@@ -16,8 +15,8 @@ import java.util.HashSet;
 public class Aantal implements LogicImplementation
 {
 
-    private HashSet uniqueWords;
-    private ArrayList list;
+    private final HashSet uniqueWords;
+    private final ArrayList list;
     private String[] woorden;
 
     public Aantal()

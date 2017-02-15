@@ -5,13 +5,9 @@
  */
 package logic;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import sun.security.krb5.internal.KDCOptions;
 
 /**
  *
@@ -20,7 +16,7 @@ import sun.security.krb5.internal.KDCOptions;
 public class Concordantie implements LogicImplementation
 {
 
-    private TreeMap<String,TreeSet> index;
+    private final TreeMap<String,TreeSet> index;
     
     public Concordantie()
     {

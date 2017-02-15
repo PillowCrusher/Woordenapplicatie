@@ -5,8 +5,6 @@
  */
 package logic;
 
-import java.util.Collection;
-
 /**
  *
  * @author Jeroe
