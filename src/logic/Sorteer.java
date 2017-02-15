@@ -34,12 +34,12 @@ public class Sorteer implements LogicImplementation
         builder.append("In geordende volgorde:\n");
         for (String woord : orderdWords())
         {
-            builder.append(woord);
+            builder.append("\n").append(woord);
         }
         builder.append("\n\n In omgekeerde volgorde");
         for (String woord : reverseOrderd())
         {
-            builder.append(woord);
+            builder.append("\n").append(woord);
         }
         return builder.toString();
     }

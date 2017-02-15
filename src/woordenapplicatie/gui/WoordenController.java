@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -76,25 +77,57 @@ public class WoordenController implements Initializable
     @FXML
     private void aantalAction(ActionEvent event)
     {
-        // Aantal.Bewerk(convertToWords());
+        Platform.runLater(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                taOutput.setText("");
+                taOutput.setText(Aantal.Bewerk(convertToWords()));
+            }
+        });
     }
 
     @FXML
     private void sorteerAction(ActionEvent event)
     {
-        //   Sorteer.Bewerk(convertToWords());
+        Platform.runLater(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                taOutput.setText("");
+                taOutput.setText(Sorteer.Bewerk(convertToWords()));
+            }
+        });
     }
 
     @FXML
     private void frequentieAction(ActionEvent event)
     {
-        //    Frequentie.Bewerk(convertToWords());
+         Platform.runLater(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                taOutput.setText("");
+                taOutput.setText(Frequentie.Bewerk(convertToWords()));
+            }
+        });
     }
 
     @FXML
     private void concordatieAction(ActionEvent event)
     {
-        //    Concordantie.Bewerk(convertToWords());
+         Platform.runLater(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                taOutput.setText("");
+                taOutput.setText(Concordantie.Bewerk(convertToLines()));
+            }
+        });
     }
 
     public String[] convertToWords()
@@ -102,11 +135,14 @@ public class WoordenController implements Initializable
         String woorden = DEFAULT_TEXT.replace("\n", " ");
         woorden = woorden.toLowerCase();
         woorden = woorden.replace(",", "");
-        System.out.println(woorden);
         return woorden.split(" ");
     }
-
-
     
-     
+    public String[] convertToLines()
+    {
+        String line = DEFAULT_TEXT.replace(",", "");
+        line = line.toLowerCase();
+        return line.split("\n");
+    }
+
 }
