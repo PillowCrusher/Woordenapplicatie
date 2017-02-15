@@ -38,13 +38,14 @@ public class Concordantie implements LogicImplementation
            count++;
            for(String woord : line.split(" "))
            {
+               if(!woord.equals(""))
                addConcordantie(woord, count);
            }
        } 
       // return index.toString(); Voor de luie onder ons
       for(Map.Entry<String,TreeSet> entry : index.entrySet())
       {
-          builder.append("\n").append(entry.getKey()).append("         ").append(entry.getValue().toString());
+          builder.append(entry.getKey()).append("         ").append(entry.getValue().toString()).append("\n");
       }
       return builder.toString();
     }

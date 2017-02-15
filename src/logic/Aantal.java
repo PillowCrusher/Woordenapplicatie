@@ -31,9 +31,9 @@ public class Aantal implements LogicImplementation
     {
         this.woorden = woorden;
         StringBuilder sBuilder = new StringBuilder();
-        sBuilder.append("Totaal aantal woorden: \n");
+        sBuilder.append("Totaal aantal woorden: ");
         sBuilder.append(convertToList().size());
-        sBuilder.append("Aantal verschillende woorden: ");
+        sBuilder.append("\nAantal verschillende woorden: ");
         sBuilder.append(convetToUniqueWords().size());
         return sBuilder.toString();
     }
