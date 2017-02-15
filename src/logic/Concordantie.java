@@ -44,7 +44,7 @@ public class Concordantie implements LogicImplementation
       // return index.toString(); Voor de luie onder ons
       for(Map.Entry<String,TreeSet> entry : index.entrySet())
       {
-          builder.append(entry.getKey()).append("         ").append(entry.getValue().toString());
+          builder.append("\n").append(entry.getKey()).append("         ").append(entry.getValue().toString());
       }
       return builder.toString();
     }
