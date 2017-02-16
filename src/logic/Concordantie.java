@@ -16,49 +16,53 @@ import java.util.TreeSet;
 public class Concordantie implements LogicImplementation
 {
 
-    private final TreeMap<String,TreeSet> index;
-    
+    private final TreeMap<String, TreeSet> index;
+
     public Concordantie()
     {
         index = new TreeMap<>();
     }
 
-    
     @Override
     public String Bewerk(String[] lines)
     {
-        StringBuilder builder = new StringBuilder();
-        int count = 0;
-       for(String line : lines)
-       {
-           count++;
-           for(String woord : line.split(" "))
-           {
-               if(!woord.equals(""))
-               addConcordantie(woord, count);
-           }
-       } 
-      // return index.toString(); Voor de luie onder ons
-      for(Map.Entry<String,TreeSet> entry : index.entrySet())
-      {
-          builder.append(entry.getKey()).append("         ").append(entry.getValue().toString()).append("\n");
-      }
-      return builder.toString();
+        if (lines != null)
+        {
+            StringBuilder builder = new StringBuilder();
+            int count = 0;
+            for (String line : lines)
+            {
+                count++;
+                for (String woord : line.split(" "))
+                {
+                    if (!woord.equals(""))
+                    {
+                        addConcordantie(woord, count);
+                    }
+                }
+            }
+            // return index.toString(); Voor de luie onder ons
+            for (Map.Entry<String, TreeSet> entry : index.entrySet())
+            {
+                builder.append(entry.getKey()).append("         ").append(entry.getValue().toString()).append("\n");
+            }
+            return builder.toString();
+        }
+        return "";
     }
-    
+
     private void addConcordantie(String woord, int line)
     {
         TreeSet uniqueWoord;
         uniqueWoord = (TreeSet) index.get(woord);
-        if(uniqueWoord==null)
+        if (uniqueWoord == null)
         {
             //Als er ipv simpelweg de line toe te voegen er een nieuwe integer wordt
             //aangemaakt, dan kunnen er wel dubbele cijfer voorkomen. Denk ik.
             TreeSet newWord = new TreeSet();
             newWord.add(line);
             index.put(woord, newWord);
-        }
-        else
+        } else
         {
             uniqueWoord.add(line);
         }

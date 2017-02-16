@@ -18,26 +18,19 @@ import static org.junit.Assert.*;
  */
 public class FrequentieTest
 {
-    
+
+    private LogicImplementation frequentie;
+
     public FrequentieTest()
     {
     }
-    
-    @BeforeClass
-    public static void setUpClass()
-    {
-    }
-    
-    @AfterClass
-    public static void tearDownClass()
-    {
-    }
-    
+
     @Before
     public void setUp()
     {
+        frequentie = new Frequentie();
     }
-    
+
     @After
     public void tearDown()
     {
@@ -51,12 +44,25 @@ public class FrequentieTest
     {
         System.out.println("Bewerk");
         String[] woorden = null;
-        Frequentie instance = new Frequentie();
         String expResult = "";
-        String result = instance.Bewerk(woorden);
+        String result = frequentie.Bewerk(woorden);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String[] woorden1 =
+        {
+        };
+        expResult = "Voorkomen van woorden";
+        result = frequentie.Bewerk(woorden1);
+        assertEquals(expResult, result);
+        String[] woorden2 =
+        {
+            "hallo", "daar", "hallo", "hier"
+        };
+        expResult = "Voorkomen van woorden\n"
+                + "daar             1\n"
+                + "hallo             2\n"
+                + "hier             1";
+        result = frequentie.Bewerk(woorden2);
+        assertEquals(expResult, result);
     }
-    
+
 }

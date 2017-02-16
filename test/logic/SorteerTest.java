@@ -18,24 +18,17 @@ import static org.junit.Assert.*;
  */
 public class SorteerTest
 {
+    private LogicImplementation sorteer;
     
     public SorteerTest()
     {
     }
     
-    @BeforeClass
-    public static void setUpClass()
-    {
-    }
-    
-    @AfterClass
-    public static void tearDownClass()
-    {
-    }
-    
+ 
     @Before
     public void setUp()
     {
+        sorteer = new Sorteer();
     }
     
     @After
@@ -51,12 +44,17 @@ public class SorteerTest
     {
         System.out.println("Bewerk");
         String[] woorden = null;
-        Sorteer instance = new Sorteer();
         String expResult = "";
-        String result = instance.Bewerk(woorden);
+        String result = sorteer.Bewerk(woorden);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String[] woorden1 = {};
+        expResult = "In geordende volgorde:\n\nIn omgekeerde volgorde";
+        result = sorteer.Bewerk(woorden1);
+        assertEquals(expResult, result);
+        String[] woorden2 = {"a","z","k","zd","qu","q"};
+        expResult = "In geordende volgorde:\na\nk\nq\nqu\nz\nzd\n\nIn omgekeerde volgorde\nzd\nz\nqu\nq\nk\na";
+        result = sorteer.Bewerk(woorden2);
+        assertEquals(expResult, result);
     }
     
 }

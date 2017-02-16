@@ -28,30 +28,36 @@ public class Aantal implements LogicImplementation
     @Override
     public String Bewerk(String[] woorden)
     {
-        this.woorden = woorden;
-        StringBuilder sBuilder = new StringBuilder();
-        sBuilder.append("Totaal aantal woorden: ");
-        sBuilder.append(convertToList().size());
-        sBuilder.append("\nAantal verschillende woorden: ");
-        sBuilder.append(convetToUniqueWords().size());
-        return sBuilder.toString();
+        if (woorden != null)
+        {
+            this.woorden = woorden;
+            StringBuilder sBuilder = new StringBuilder();
+            sBuilder.append("Totaal aantal woorden: ");
+            sBuilder.append(convertToList().size());
+            sBuilder.append("\nAantal verschillende woorden: ");
+            sBuilder.append(convetToUniqueWords().size());
+            return sBuilder.toString();
+        }
+        return "";
     }
 
-    public HashSet convetToUniqueWords()
+    private HashSet convetToUniqueWords()
     {
         uniqueWords.clear();
         for (String word : woorden)
         {
+            if(!word.equals(""))
             uniqueWords.add(word);
         }
         return uniqueWords;
     }
-    
-    public ArrayList convertToList()
+
+    private ArrayList convertToList()
     {
         list.clear();
-        for(String word : woorden)
+        for (String word : woorden)
         {
+            if(!word.equals(""))
             list.add(word);
         }
         return list;

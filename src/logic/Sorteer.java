@@ -29,21 +29,29 @@ public class Sorteer implements LogicImplementation
     @Override
     public String Bewerk(String[] woorden)
     {
-        StringBuilder builder = new StringBuilder();
-        this.woorden = woorden;
-        builder.append("In geordende volgorde:");
-        for (String woord : orderdWords())
+        if (woorden != null)
         {
-            if(!woord.equals(""))
-            builder.append("\n").append(woord);
+            StringBuilder builder = new StringBuilder();
+            this.woorden = woorden;
+            builder.append("In geordende volgorde:");
+            for (String woord : orderdWords())
+            {
+                if (!woord.equals(""))
+                {
+                    builder.append("\n").append(woord);
+                }
+            }
+            builder.append("\n\nIn omgekeerde volgorde");
+            for (String woord : reverseOrderd())
+            {
+                if (!woord.equals(""))
+                {
+                    builder.append("\n").append(woord);
+                }
+            }
+            return builder.toString();
         }
-        builder.append("\n\n In omgekeerde volgorde");
-        for (String woord : reverseOrderd())
-        {
-            if(!woord.equals(""))
-            builder.append("\n").append(woord);
-        }
-        return builder.toString();
+        return "";
     }
 
     private Set<String> orderdWords()

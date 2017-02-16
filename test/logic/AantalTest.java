@@ -5,12 +5,8 @@
  */
 package logic;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -20,26 +16,19 @@ import static org.junit.Assert.*;
  */
 public class AantalTest
 {
-    //Hallo
+
+    private LogicImplementation aantal;
+
     public AantalTest()
     {
     }
-    
-    @BeforeClass
-    public static void setUpClass()
-    {
-    }
-    
-    @AfterClass
-    public static void tearDownClass()
-    {
-    }
-    
+
     @Before
     public void setUp()
     {
+        aantal = new Aantal();
     }
-    
+
     @After
     public void tearDown()
     {
@@ -53,42 +42,22 @@ public class AantalTest
     {
         System.out.println("Bewerk");
         String[] woorden = null;
-        Aantal instance = new Aantal();
         String expResult = "";
-        String result = instance.Bewerk(woorden);
+        String result = aantal.Bewerk(woorden);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of convetToUniqueWords method, of class Aantal.
-     */
-    @Test
-    public void testConvetToUniqueWords()
-    {
-        System.out.println("convetToUniqueWords");
-        Aantal instance = new Aantal();
-        HashSet expResult = null;
-        HashSet result = instance.convetToUniqueWords();
+        String[] woorden1 =
+        {
+            "a", "s",""
+        };
+        expResult = "Totaal aantal woorden: 2\nAantal verschillende woorden: 2";
+        result = aantal.Bewerk(woorden1);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of convertToList method, of class Aantal.
-     */
-    @Test
-    public void testConvertToList()
-    {
-        System.out.println("convertToList");
-        Aantal instance = new Aantal();
-        ArrayList expResult = null;
-        ArrayList result = instance.convertToList();
+        String[] woorden2 =
+        {
+            "ab", "abc", "ab", "fd",""
+        };
+        expResult = "Totaal aantal woorden: 4\nAantal verschillende woorden: 3";
+        result = aantal.Bewerk(woorden2);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-    
 }

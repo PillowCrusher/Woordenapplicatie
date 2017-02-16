@@ -24,7 +24,6 @@ public class Frequentie implements LogicImplementation
     maar wanneer van te voren al weet hoe groote de lijst moet worden kun je 
     simpelweg de initiele waarde hoog genoeg maken om dit te voorkomen.
      */
-
     private ArrayList<String> list;
     private final Set<String> uniqeSet;
     private String[] woorden;
@@ -37,9 +36,13 @@ public class Frequentie implements LogicImplementation
     @Override
     public String Bewerk(String[] woorden)
     {
-        this.woorden = woorden;
-        list = new ArrayList(woorden.length);
-        return getFrequencies();
+        if (woorden != null)
+        {
+            this.woorden = woorden;
+            list = new ArrayList(woorden.length);
+            return getFrequencies();
+        }
+        return "";
     }
 
     private String getFrequencies()

@@ -18,26 +18,19 @@ import static org.junit.Assert.*;
  */
 public class ConcordantieTest
 {
-    
+
+    private LogicImplementation concordantie;
+
     public ConcordantieTest()
     {
     }
-    
-    @BeforeClass
-    public static void setUpClass()
-    {
-    }
-    
-    @AfterClass
-    public static void tearDownClass()
-    {
-    }
-    
+
     @Before
     public void setUp()
     {
+        concordantie = new Concordantie();
     }
-    
+
     @After
     public void tearDown()
     {
@@ -51,12 +44,27 @@ public class ConcordantieTest
     {
         System.out.println("Bewerk");
         String[] lines = null;
-        Concordantie instance = new Concordantie();
         String expResult = "";
-        String result = instance.Bewerk(lines);
+        String result = concordantie.Bewerk(lines);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String[] lines1 =
+        {
+        };
+        result = concordantie.Bewerk(lines1);
+        assertEquals(expResult, result);
+        String[] lines2 =
+        {
+            "asdf sdf fe", "sdf eee kkk  ", "fe"
+        };
+
+        expResult = "asdf         [1]\n"
+                + "eee         [2]\n"
+                + "fe         [1, 3]\n"
+                + "kkk         [2]\n"
+                + "sdf         [1, 2]\n";
+        result = concordantie.Bewerk(lines2);
+        assertEquals(expResult, result);
+
     }
-    
+
 }
