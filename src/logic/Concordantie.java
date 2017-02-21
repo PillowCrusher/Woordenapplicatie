@@ -5,6 +5,7 @@
  */
 package logic;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -16,11 +17,11 @@ import java.util.TreeSet;
 public class Concordantie implements LogicImplementation
 {
 
-    private final TreeMap<String, TreeSet> index;
+    private final HashMap<String, TreeSet> index;
 
     public Concordantie()
     {
-        index = new TreeMap<>();
+        index = new HashMap<>();
     }
 
     @Override

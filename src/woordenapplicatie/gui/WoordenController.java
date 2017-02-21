@@ -130,7 +130,7 @@ public class WoordenController implements Initializable
     public String[] convertToWords()
     {
         String woorden = DEFAULT_TEXT.replace("\n", " ");
-        woorden = woorden.toLowerCase();
+//        woorden = woorden.toLowerCase();
         woorden = woorden.replace(",", "");
         return woorden.split(" ");
     }
@@ -138,7 +138,7 @@ public class WoordenController implements Initializable
     public String[] convertToLines()
     {
         String line = DEFAULT_TEXT.replace(",", "");
-        line = line.toLowerCase();
+//        line = line.toLowerCase();
         return line.split("\n");
     }
 
